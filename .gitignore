@@ -1,0 +1,4 @@
+/reports/excluded/*
+/scripts/archive/*
+/.idea
+/models
