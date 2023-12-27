@@ -1,4 +1,4 @@
-import dataclasses
+
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -6,13 +6,10 @@ from sberl.environment import InvertedPendulumEnv, RewardingAdjustedAngle, Summa
 from sberl.trainer import Trainer
 from sberl.agent import AgentPPO
 from sberl.model import PolicyModel
+from sberl.recorder import Recorder
 
-import argparse
 import numpy as np
 
-import sqlite3
-
-from sberl.recorder import Recorder
 
 
 @dataclass
