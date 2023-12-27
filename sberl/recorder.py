@@ -17,6 +17,9 @@ import marshal
 
 @dataclass
 class Recorder:
+    """
+        A class to record experiments to database.
+    """
     cfg: AbstractConfig
     rewarding_function: Callable
     query_create_configs_table: str = """
@@ -51,8 +54,12 @@ class Recorder:
         """
 
     def serialize_rewards(self):
-        # pdata = pickle.dumps(self.rewarding_function, pickle.HIGHEST_PROTOCOL)
-        # return sqlite3.Binary(pdata)
+        """
+            This method serializes a rewarding function to record it to database.
+
+        :return:
+        """
+
         m_func = marshal.dumps(self.rewarding_function.__code__)
         return m_func
 
