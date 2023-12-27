@@ -11,7 +11,6 @@ from sberl.recorder import Recorder
 import numpy as np
 
 
-
 @dataclass
 class Config:
     project_path: Path = Path(__file__).parent

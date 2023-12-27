@@ -366,7 +366,7 @@ class EnvRunner:
 
         for i in range(self.nsteps):
             observations.append(self.state["latest_observation"])
-            act = self.policy.choose_action(self.state["latest_observation"])
+            act = self.policy.act(self.state["latest_observation"])
             if "actions" not in act:
                 raise ValueError("result of policy.act must contain 'actions' "
                                  f"but has keys {list(act.keys())}")
@@ -561,7 +561,7 @@ class PPO:
         rds = torch.tensor(trajectory["rewards"])
         dns = torch.tensor(trajectory["resets"])
 
-        dist, values = self.policy.choose_action(obs, training=True).values()
+        dist, values = self.policy.act(obs, training=True).values()
 
         actions = dist.sample()
         log_probs = dist.log_prob(actions)
@@ -581,7 +581,7 @@ class PPO:
         return value_loss
 
     def loss(self, trajectory):
-        act = self.policy.choose_action(trajectory["observations"], training=True)
+        act = self.policy.act(trajectory["observations"], training=True)
         policy_loss = self.policy_loss(trajectory, act)
         value_loss = self.value_loss(trajectory, act)
 
@@ -665,7 +665,7 @@ def main():
                 plt.savefig("tmp.png")
                 # plt.show()
 
-        if (epoch + 1) % 50_001 == 0:
+        if (epoch + 1) % 50_000 == 0:
             torch.save(model.state_dict(), f"practical_rl_models/model_{epoch + 1}.pth")
 
         ppo.step(trajectory)
