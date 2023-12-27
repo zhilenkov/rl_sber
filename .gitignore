@@ -1,7 +1,7 @@
 /reports/excluded/*
 /scripts/archive/*
 /.idea
-/models
+models/*
 /sberl/sberl.egg-info
 .coverage
 *__pycache__
