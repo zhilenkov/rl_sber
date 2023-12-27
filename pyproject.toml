@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sberl"
+version = "0.0.1"
+dependencies = [
+    'importlib-metadata; python_version<"3.8"',
+]
+
+#[tool.setuptools.packages]
+#find = {}  # Scan the project directory with the default parameters
+
+# OR
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+where = ["sberl"]  # ["."] by default
+include = ["sberl*"]  # ["*"] by default
+exclude = ["sberl.tests*"]  # empty by default
+namespaces = false  # true by default

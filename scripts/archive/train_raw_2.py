@@ -571,7 +571,7 @@ def train():
                 print_avg_reward = print_running_reward / print_running_episodes
                 print_avg_reward = round(print_avg_reward, 2)
 
-                print("Episode : {} \t\t Timestep : {} \t\t Average Reward : {}".format(i_episode, time_step,
+                print("Episode : {} \t\t Timestep : {} \t\t Average RewardingFunction : {}".format(i_episode, time_step,
                                                                                         print_avg_reward))
 
                 print_running_reward = 0

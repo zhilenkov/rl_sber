@@ -2,3 +2,7 @@
 /scripts/archive/*
 /.idea
 /models
+/sberl/sberl.egg-info
+.coverage
+*__pycache__
+data/*

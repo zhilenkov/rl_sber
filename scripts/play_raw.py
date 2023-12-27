@@ -324,7 +324,7 @@ def main():
     obs = env.reset()
 
     model = PolicyModel(hidden=64)
-    model.load_state_dict(torch.load(str(Path(__file__).parent / "practical_rl_models" / "model_1900000.pth")))
+    model.load_state_dict(torch.load(str(Path(__file__).parent / "practical_rl_models" / "model_5000000.pth")))
     model.eval()
 
     policy = Policy(model)
@@ -332,7 +332,7 @@ def main():
     rewards = []
     states = []
 
-    for i in range(2000):
+    for i in range(4000):
         action = policy.act(obs)["actions"]
         obs, r, d, _, _ = env.step(action)
         rewards.append(r)
